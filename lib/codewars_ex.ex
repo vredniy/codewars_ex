@@ -1,18 +1,12 @@
 defmodule CodewarsEx do
-  @moduledoc """
-  Documentation for CodewarsEx.
-  """
+  use Application
 
-  @doc """
-  Hello world.
+  def start(_type, _args) do
+    children = [
+      Plug.Adapters.Cowboy.child_spec(:http,
+      CodewarsEx.Router, [], port: 4000)
+    ]
 
-  ## Examples
-
-      iex> CodewarsEx.hello
-      :world
-
-  """
-  def hello do
-    :world
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end
