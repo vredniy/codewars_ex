@@ -14,7 +14,12 @@ defmodule CodewarsEx.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      applications: [:cowboy, :ranch, :logger],
+      applications: [:plug,
+                     :cowboy,
+                     :ranch,
+                     :logger,
+                     :gproc
+                    ],
       mod: {CodewarsEx, []}
     ]
   end
@@ -24,7 +29,8 @@ defmodule CodewarsEx.Mixfile do
     [
       {:cowboy, "~> 1.1"},
       {:plug, "~> 1.4"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:gproc, "~> 0.6"}
     ]
   end
 end

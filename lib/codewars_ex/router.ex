@@ -1,6 +1,4 @@
 defmodule CodewarsEx.Router do
-  require IEx
-
   use Plug.Router
   use Plug.Debugger, otp_app: :codewars_ex
 
@@ -12,7 +10,11 @@ defmodule CodewarsEx.Router do
   plug :dispatch
 
   post "/webhook" do
-    IEx.pry
+    {:ok, file} = File.open "./dump.json", [:append]
+
+    IO.binwrite file, (Poison.encode!(conn.body_params) <> "\n")
+
+    File.close file
 
     send_resp(conn, 200, "hello")
   end
