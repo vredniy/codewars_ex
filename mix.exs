@@ -14,12 +14,8 @@ defmodule CodewarsEx.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      applications: [:plug,
-                     :cowboy,
-                     :ranch,
-                     :logger,
-                     :gproc
-                    ],
+      applications: [:plug, :cowboy,
+                     :ranch, :logger],
       mod: {CodewarsEx, []}
     ]
   end
@@ -30,7 +26,7 @@ defmodule CodewarsEx.Mixfile do
       {:cowboy, "~> 1.1"},
       {:plug, "~> 1.4"},
       {:poison, "~> 3.1"},
-      {:gproc, "~> 0.6"}
+      {:web_socket, github: "slogsdon/plug-web-socket"}
     ]
   end
 end
