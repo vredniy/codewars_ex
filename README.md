@@ -1,21 +1,4 @@
 # CodewarsEx
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `codewars_ex` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:codewars_ex, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/codewars_ex](https://hexdocs.pm/codewars_ex).
-
+Register webhook in your profile (https://www.codewars.com/users/edit), please check Global checkpoint there. Your webhook address show be something like %host%/webhook.
+Then open %host%, and you will see some event updating in real time via web sockets.
