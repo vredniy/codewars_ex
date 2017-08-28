@@ -5,9 +5,14 @@ defmodule CodewarsEx do
     children = [
       Plug.Adapters.Cowboy.child_spec(:http, CodewarsEx.Router, [],
         dispatch: CodewarsEx.Router.dispatch_table(),
-        port: 5000)
+        port: port(System.get_env("PORT")))
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: CodewarsEx.Supervisor)
+  end
+
+  def port(nil), do: 5000
+  def port(value) do
+    String.to_integer(value)
   end
 end
