@@ -81,7 +81,8 @@
   <div id="output"></div>
 
   <script language="javascript" type="text/javascript">
-   var wsUri = "ws://" + location.host + "/echo";
+   var protocol = location.protocol == 'https:' ? 'wss://' : 'ws://'
+   var wsUri = protocol + location.host + "/echo";
    var output;
    var websocket;
    function init() {
@@ -113,6 +114,7 @@
      pre.innerHTML = message;
      output.appendChild(pre);
    }
+
    window.addEventListener("load", init, false);
   </script>
 </body>
